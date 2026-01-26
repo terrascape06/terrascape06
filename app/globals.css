@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Force a background color to test if CSS is working */
+body {
+  @apply bg-terra-sand text-terra-brown;
+}
+
+html, body {
+  overflow-x: hidden;
+}
