@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutSection() {
   const checkmarks = [
@@ -24,26 +26,23 @@ export default function AboutSection() {
           >
             <div className="mb-4">
               <span className="text-terra-gold font-bold tracking-widest uppercase text-sm">
-                QUI SOMMES-NOUS ?
+                NOTRE ADN
               </span>
             </div>
             
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-terra-brown font-montserrat mb-8 leading-tight">
-              Le Partenaire Logistique des Établissements de la Côte d&apos;Azur.
+              Plus qu'un service, un partenaire de l'ombre.
             </h2>
 
             <p className="text-terra-brown/80 text-lg mb-6 leading-relaxed">
-              Spécialistes de l&apos;aménagement et de l&apos;entretien, nous comprenons les exigences 
-              du monde de la nuit et de la restauration.
+              Terrascape est né d'une exigence : offrir aux établissements de la Côte d'Azur une logistique irréprochable.
             </p>
-            <p className="text-terra-brown/80 text-lg mb-10 leading-relaxed">
-              De la mise en place matinale au rangement nocturne, Terrascape assure une gestion 
-              impeccable de vos extérieurs, permettant à votre équipe de se concentrer sur l&apos;essentiel : 
-              le service client.
+            <p className="text-terra-brown/80 text-lg mb-8 leading-relaxed">
+              Nous sommes les mains invisibles qui rendent vos terrasses parfaites, chaque jour.
             </p>
 
-            {/* Trust Values Checkmarks */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+             {/* Trust Values Checkmarks */}
+             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
               {checkmarks.map((item, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-terra-gold/10 flex items-center justify-center">
@@ -55,6 +54,15 @@ export default function AboutSection() {
                 </div>
               ))}
             </div>
+
+            {/* CTA Button */}
+            <Link 
+              href="/about"
+              className="inline-flex items-center gap-2 text-terra-brown border-b-2 border-terra-brown hover:text-terra-gold hover:border-terra-gold transition-colors pb-1 font-semibold group"
+            >
+              Découvrir notre histoire
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </motion.div>
 
           {/* Right Column: Visual Authority */}
@@ -70,10 +78,11 @@ export default function AboutSection() {
 
             {/* Main Image */}
             <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl h-[400px] md:h-[500px]">
-              <img 
-                src="https://i.pinimg.com/736x/41/0e/d5/410ed579e4861fe327e1f505105824a9.jpg"
-                alt="Terrasse de restaurant de luxe"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              <Image 
+                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop"
+                alt="Service professionnel en terrasse"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105"
               />
               {/* Optional overlay for better integration */}
               <div className="absolute inset-0 bg-terra-brown/10 hover:bg-transparent transition-colors duration-500" />

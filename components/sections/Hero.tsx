@@ -1,52 +1,98 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function HeroSection() {
   return (
-    <section id="accueil" className="relative min-h-screen flex items-center">
+    <section id="accueil" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1544144433-d50bc5b9160b?q=80&w=2000&auto=format&fit=crop')" 
-        }}
-      >
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1656671504766-11720e7e8bac?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Terrasse de luxe sur la Côte d'Azur"
+          layout="fill"
+          objectFit="cover"
+          priority
+          className="select-none"
+        />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-terra-brown/80 via-terra-brown/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32 pt-40">
         <div className="max-w-4xl">
           {/* Main Tagline */}
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight font-montserrat">
-            Rangement, Nettoyage & Entretien
-          </h1>
+          <motion.h1 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight font-montserrat uppercase"
+          >
+            VOTRE ÉTABLISSEMENT IMPECCABLE, SANS CONTRAINTE.
+          </motion.h1>
 
-          {/* Sub-text: Context & Audience */}
-          <div className="mb-8 space-y-2">
-            <p className="text-xl md:text-2xl text-terra-gold font-semibold">
-              Service exclusif pour Restaurants, Bars, Plages Privées & Clubs.
-            </p>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-              Mise en place quotidienne • Rangement • Entretien • Événementiel
-            </p>
+          {/* Sub-text: Context & Hook */}
+          <div className="mb-8 space-y-4">
+            <motion.h2 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="text-xl md:text-2xl text-terra-sand font-medium"
+            >
+              Spécialiste terrasses, établissements et plages privées sur la Côte d'Azur.
+            </motion.h2>
+            <motion.p 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="text-lg md:text-xl text-terra-gold italic font-medium"
+            >
+              "Concentrez-vous sur vos clients, TERRASCAPE s'occupe du reste."
+            </motion.p>
           </div>
 
-          {/* B2B Trust Badge */}
-          <div className="mb-4 inline-block border border-white/30 bg-terra-brown/50 backdrop-blur-sm px-4 py-1 rounded text-xs md:text-sm font-medium text-white tracking-wider uppercase">
-            SERVICE RÉSERVÉ AUX PROFESSIONNELS
-          </div>
+          {/* Key Features (Badges) */}
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="flex flex-wrap gap-3 mb-8"
+          >
+            <span className="flex items-center gap-2 text-white/90 font-medium text-sm md:text-base bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
+              <span className="text-terra-gold">•</span> Intervention 7j/7
+            </span>
+            <span className="flex items-center gap-2 text-white/90 font-medium text-sm md:text-base bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
+              <span className="text-terra-gold">•</span> Matin, Journée & Nuit
+            </span>
+            <span className="flex items-center gap-2 text-white/90 font-medium text-sm md:text-base bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
+              <span className="text-terra-gold">•</span> Service Discret
+            </span>
+          </motion.div>
 
           {/* CTA Button */}
-          <div className="mb-8">
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            className="mb-8"
+          >
             <a
-              href="#contact"
+              href="/contact"
               className="inline-block bg-terra-gold text-white px-10 py-4 rounded-full hover:bg-terra-brown transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105"
             >
               Devis Professionnel Gratuit
             </a>
-          </div>
+          </motion.div>
 
           {/* Trust Badge / Location Info */}
-          <div className="flex items-center gap-2 text-white/80">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+            className="flex items-center gap-2 text-white/80"
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -69,9 +115,10 @@ export default function HeroSection() {
             <p className="text-sm md:text-base font-medium">
               Nice • Cannes • Monaco • Antibes
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
+

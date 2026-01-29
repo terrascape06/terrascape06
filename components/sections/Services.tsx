@@ -1,23 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LayoutGrid, Droplets, Gem, ArrowRight } from "lucide-react";
+import { Armchair, Sparkles, PartyPopper, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    title: "Installation & Logistique",
-    description: "Mise en place quotidienne et hivernage de votre mobilier.",
-    icon: LayoutGrid,
+    title: "Gestion de Terrasses",
+    description: "Installation du mobilier • Rangement après service • Mise en place ouverture/fermeture.",
+    icon: Armchair,
   },
   {
-    title: "Nettoyage Haute-Pression",
-    description: "Décapage sols et rénovation de mobilier (Tek, Alu).",
-    icon: Droplets,
+    title: "Nettoyage d'Établissements",
+    description: "Restaurants, bars & clubs • Hygiène des espaces clients • Nettoyage avant/après service.",
+    icon: Sparkles,
   },
   {
-    title: "Décoration & Events",
-    description: "Aménagement pour soirées privées et événements.",
-    icon: Gem,
+    title: "Plages Privées & Événementiel",
+    description: "Mise en place transats • Transformation pour soirées DJ • Gestion Avant/Après événement.",
+    icon: PartyPopper,
   },
 ];
 
@@ -88,7 +88,7 @@ export default function ServicesSection() {
                 </p>
 
                 <a
-                  href="#contact"
+                  href="/services"
                   className="inline-flex items-center text-terra-gold font-semibold uppercase tracking-wide text-sm border-b border-terra-gold pb-1 hover:text-terra-brown hover:border-terra-brown transition-all duration-300 group-hover:translate-x-1"
                 >
                   En savoir plus
