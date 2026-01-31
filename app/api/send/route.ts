@@ -5,14 +5,22 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    // 1. On récupère les noms EXACTS que ton formulaire envoie (vus dans ta console)
-    const { name, establishment, phone, serviceType, message, email } = await request.json();
+    // 1. On récupère les noms EXACTS que ton formulaire envoie
+    interface ContactFormData {
+      name: string;
+      establishment: string;
+      phone: string;
+      serviceType: string;
+      message: string;
+      email: string;
+    }
+    const { name, establishment, phone, serviceType, message, email } = await request.json() as ContactFormData;
 
     // 2. On envoie l'email
     const data = await resend.emails.send({
       from: 'Terrascape <contact@terrascape06.com>',
       to: ['terrascape06@gmail.com'], 
-      reply_to: email, // Permet de répondre direct au client si l'email est fourni
+      replyTo: email, // Permet de répondre direct au client si l'email est fourni
       subject: `Nouveau Lead : ${establishment} (${serviceType})`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #333;">
