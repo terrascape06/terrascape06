@@ -2,20 +2,40 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     establishment: "",
+    email: "",
     phone: "",
     message: ""
   });
+  
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add submission logic here
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", establishment: "", email: "", phone: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -134,24 +154,47 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              <div className="relative group">
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors"
-                  placeholder="Téléphone"
-                  required
-                />
-                <label 
-                  htmlFor="phone" 
-                  className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.phone ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
-                >
-                  Téléphone
-                </label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="relative group">
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors"
+                    placeholder="Téléphone"
+                    required
+                  />
+                  <label 
+                    htmlFor="phone" 
+                    className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.phone ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
+                  >
+                    Téléphone
+                  </label>
+                </div>
+
+                <div className="relative group">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors"
+                    placeholder="Email"
+                    required
+                  />
+                  <label 
+                    htmlFor="email" 
+                    className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.email ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
+                  >
+                    Email
+                  </label>
+                </div>
               </div>
+
+
 
               <div className="relative group">
                 <textarea
@@ -174,11 +217,41 @@ export default function ContactSection() {
 
               <button
                 type="submit"
-                className="w-full bg-terra-gold text-white py-4 rounded-full font-bold uppercase tracking-wide hover:bg-white hover:text-terra-brown transition-all duration-300 flex items-center justify-center gap-2 group"
+                disabled={status === "loading"}
+                className="w-full bg-terra-gold text-white py-4 rounded-full font-bold uppercase tracking-wide hover:bg-white hover:text-terra-brown transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Envoyer ma demande
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {status === "loading" ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Envoi...
+                  </>
+                ) : (
+                  <>
+                    Envoyer ma demande
+                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
+
+              {status === "success" && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-center text-white"
+                >
+                  <p>Message envoyé avec succès ! Nous vous répondrons sous 24h.</p>
+                </motion.div>
+              )}
+              
+              {status === "error" && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-center text-white"
+                >
+                  <p>Une erreur est survenue. Veuillez réessayer.</p>
+                </motion.div>
+              )}
             </form>
           </motion.div>
 
