@@ -79,8 +79,8 @@ export default function AboutSection() {
             {/* Main Image */}
             <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl h-[400px] md:h-[500px]">
               <Image 
-                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop"
-                alt="Service professionnel en terrasse"
+                src="/images/about-us/image-terasse-restaurant.jpg"
+                alt="image terasse de restaurant "
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />

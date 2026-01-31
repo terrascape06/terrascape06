@@ -2,22 +2,26 @@
 
 import { motion } from "framer-motion";
 import { Armchair, Sparkles, PartyPopper, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
     title: "Gestion de Terrasses",
     description: "Installation du mobilier • Rangement après service • Mise en place ouverture/fermeture.",
     icon: Armchair,
+    link: "/services/gestion",
   },
   {
     title: "Nettoyage d'Établissements",
     description: "Restaurants, bars & clubs • Hygiène des espaces clients • Nettoyage avant/après service.",
     icon: Sparkles,
+    link: "/services/nettoyage",
   },
   {
     title: "Plages Privées & Événementiel",
     description: "Mise en place transats • Transformation pour soirées DJ • Gestion Avant/Après événement.",
     icon: PartyPopper,
+    link: "/services/events",
   },
 ];
 
@@ -87,13 +91,13 @@ export default function ServicesSection() {
                   {service.description}
                 </p>
 
-                <a
-                  href="/services"
+                <Link
+                  href={service.link}
                   className="inline-flex items-center text-terra-gold font-semibold uppercase tracking-wide text-sm border-b border-terra-gold pb-1 hover:text-terra-brown hover:border-terra-brown transition-all duration-300 group-hover:translate-x-1"
                 >
                   En savoir plus
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
+                </Link>
               </motion.div>
             );
           })}

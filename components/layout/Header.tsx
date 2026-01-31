@@ -57,12 +57,21 @@ export default function Header() {
             </li>
             <li>
               <Link 
+                href="/references" 
+                className="text-terra-brown hover:text-terra-gold transition-colors duration-300 font-medium"
+              >
+                Références
+              </Link>
+            </li>
+            <li>
+              <Link 
                 href="/about" 
                 className="text-terra-brown hover:text-terra-gold transition-colors duration-300 font-medium"
               >
                 À Propos
               </Link>
             </li>
+            
             <li>
               <Link 
                 href="/contact" 
@@ -105,6 +114,13 @@ export default function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Services
+              </Link>
+              <Link 
+                href="/references" 
+                className="text-terra-brown hover:text-terra-gold font-medium text-lg py-3 border-b border-gray-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Références
               </Link>
               <Link 
                 href="/about" 
