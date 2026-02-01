@@ -30,7 +30,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight font-montserrat uppercase"
           >
-            VOTRE ÉTABLISSEMENT IMPECCABLE, SANS CONTRAINTE.
+            L'EXPERT LOGISTIQUE & NETTOYAGE DE TERRASSES
           </motion.h1>
 
           {/* Sub-text: Context & Hook */}
@@ -41,7 +41,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="text-xl md:text-2xl text-terra-sand font-medium"
             >
-              Spécialiste terrasses, établissements et plages privées sur la Côte d'Azur.
+              Spécialiste pour l'hivernage, le stockage de mobilier et la remise en état . Intervention de Monaco à Cannes.
             </motion.h2>
             <motion.p 
               initial={{ y: 20, opacity: 0 }}
@@ -113,7 +113,7 @@ export default function HeroSection() {
               />
             </svg>
             <p className="text-sm md:text-base font-medium">
-              Nice • Cannes • Monaco • Antibes
+              Nice • Cannes • Monaco • Antibes • Saint-Jean-Cap-Ferrat
             </p>
           </motion.div>
         </div>

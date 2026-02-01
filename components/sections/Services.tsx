@@ -6,20 +6,20 @@ import Link from "next/link";
 
 const services = [
   {
-    title: "Gestion de Terrasses",
-    description: "Installation du mobilier • Rangement après service • Mise en place ouverture/fermeture.",
-    icon: Armchair,
-    link: "/services/gestion",
-  },
-  {
-    title: "Nettoyage d'Établissements",
-    description: "Restaurants, bars & clubs • Hygiène des espaces clients • Nettoyage avant/après service.",
+    title: "Nettoyage Haute Pression & Normes HACCP",
+    description: "Décapage de sols, nettoyage de stores bannes et remise en état de cuisines. Solutions respectant les normes d'hygiène pour restaurants.",
     icon: Sparkles,
     link: "/services/nettoyage",
   },
   {
-    title: "Plages Privées & Événementiel",
-    description: "Mise en place transats • Transformation pour soirées DJ • Gestion Avant/Après événement.",
+    title: "Hivernage & Gestion de Stock Mobilier",
+    description: "Ne perdez plus de place. Nous assurons la collecte, le stockage sécurisé et l'inventaire de vos parasols, transats et tables hors saison.",
+    icon: Armchair,
+    link: "/services/gestion",
+  },
+  {
+    title: "Mise en place & Logistique Événementielle",
+    description: "Installation de terrasses éphémères et manutention de mobilier pour vos soirées et événements sur la Côte d'Azur.",
     icon: PartyPopper,
     link: "/services/events",
   },
