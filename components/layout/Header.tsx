@@ -55,14 +55,14 @@ export default function Header() {
                 Services
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link 
                 href="/references" 
                 className="text-terra-brown hover:text-terra-gold transition-colors duration-300 font-medium"
               >
                 Références
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link 
                 href="/about" 
