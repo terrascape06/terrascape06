@@ -5,12 +5,17 @@ import { Check, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function AboutSection() {
-  const checkmarks = [
-    "Intervention 7j/7",
-    "Discrétion Assurée",
-    "Équipes Formées"
-  ];
+interface AboutDict {
+  eyebrow: string;
+  title: string;
+  description1: string;
+  description2: string;
+  checkmarks: string[];
+  cta: string;
+  imageAlt: string;
+}
+
+export default function AboutSection({ dict, lang }: { dict: AboutDict; lang: string }) {
 
   return (
     <section id="apropos" className="py-24 bg-terra-white overflow-hidden">
@@ -26,24 +31,24 @@ export default function AboutSection() {
           >
             <div className="mb-4">
               <span className="text-terra-gold font-bold tracking-widest uppercase text-sm">
-                NOTRE ADN
+                {dict.eyebrow}
               </span>
             </div>
             
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-terra-brown font-montserrat mb-8 leading-tight">
-              Plus qu'un service, un partenaire de l'ombre.
+              {dict.title}
             </h2>
 
             <p className="text-terra-brown/80 text-lg mb-6 leading-relaxed">
-              Terrascape est né d'une exigence : offrir aux établissements de la Côte d'Azur une logistique irréprochable.
+              {dict.description1}
             </p>
             <p className="text-terra-brown/80 text-lg mb-8 leading-relaxed">
-              Nous sommes les mains invisibles qui rendent vos terrasses parfaites, chaque jour.
+              {dict.description2}
             </p>
 
              {/* Trust Values Checkmarks */}
              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-              {checkmarks.map((item, index) => (
+              {dict.checkmarks.map((item, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-terra-gold/10 flex items-center justify-center">
                     <Check className="w-5 h-5 text-terra-gold" />
@@ -57,10 +62,10 @@ export default function AboutSection() {
 
             {/* CTA Button */}
             <Link 
-              href="/about"
+              href={`/${lang}/about`}
               className="inline-flex items-center gap-2 text-terra-brown border-b-2 border-terra-brown hover:text-terra-gold hover:border-terra-gold transition-colors pb-1 font-semibold group"
             >
-              Découvrir notre histoire
+              {dict.cta}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </motion.div>
@@ -80,7 +85,7 @@ export default function AboutSection() {
             <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl h-[400px] md:h-[500px]">
               <Image 
                 src="/images/about-us/image-terasse-restaurant.jpg"
-                alt="image terasse de restaurant "
+                alt={dict.imageAlt}
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />

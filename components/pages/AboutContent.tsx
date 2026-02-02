@@ -12,30 +12,49 @@ import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-export default function AboutContent() {
-  const values = [
-    {
-      title: "Fiabilité",
-      description: "Nous sommes là, qu'il pleuve, qu'il vente, ou qu'il soit 5h du matin.",
-      icon: Clock,
-    },
-    {
-      title: "Discrétion",
-      description: "Intervention silencieuse, tenue impeccable. Vos clients ne nous voient pas, ils voient le résultat.",
-      icon: EyeOff,
-    },
-    {
-      title: "Exigence",
-      description: "Le souci du détail est notre standard. Rien n'est laissé au hasard.",
-      icon: Gem,
-    },
-  ];
+interface NavigationDict {
+  home: string;
+  services: string;
+  about: string;
+  contact: string;
+}
 
-  const cities = ["Nice", "Cannes", "Antibes", "Juan-les-Pins", "Monaco"];
+interface FooterDict {
+  brandName: string;
+  brandDescription: string;
+  contactTitle: string;
+  phone: string;
+  location: string;
+  email: string;
+  quickLinksTitle: string;
+  quickLinks: {
+    services: string;
+    about: string;
+    contact: string;
+  };
+  copyright: string;
+}
+
+interface AboutContentProps {
+  navigationDict: NavigationDict;
+  footerDict: FooterDict;
+  aboutDict: any;
+  lang: string;
+}
+
+export default function AboutContent({ navigationDict, footerDict, aboutDict, lang }: AboutContentProps) {
+  const iconMap: Record<string, any> = {
+    "Fiabilité": Clock,
+    "Reliability": Clock,
+    "Discrétion": EyeOff,
+    "Discretion": EyeOff,
+    "Exigence": Gem,
+    "Excellence": Gem
+  };
 
   return (
     <main className="min-h-screen bg-terra-white">
-      <Header />
+      <Header dict={navigationDict} lang={lang} />
       
       {/* 1. Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
@@ -60,7 +79,7 @@ export default function AboutContent() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl md:text-5xl font-bold font-montserrat uppercase tracking-wider text-white mb-4"
           >
-            L'EXCELLENCE OPÉRATIONNELLE POUR VOTRE ÉTABLISSEMENT.
+            {aboutDict.hero.title}
           </motion.h1>
           <motion.div 
              initial={{ opacity: 0 }}
@@ -68,7 +87,7 @@ export default function AboutContent() {
              transition={{ duration: 0.8, delay: 0.3 }}
              className="text-white/90 text-lg md:text-xl font-medium tracking-wide"
           >
-            Logistique de Terrasse • Hygiène & Propreté • Événementiel
+            {aboutDict.hero.subtitle}
           </motion.div>
         </div>
       </section>
@@ -83,21 +102,19 @@ export default function AboutContent() {
             transition={{ duration: 0.8 }}
            >
              <span className="text-terra-gold font-bold tracking-widest uppercase text-sm mb-4 block">
-                NOTRE MISSION
+                {aboutDict.mission.eyebrow}
              </span>
              <h2 className="text-3xl md:text-4xl font-bold text-terra-brown mb-8 font-montserrat">
-               Préparer la scène pour votre succès.
+               {aboutDict.mission.title}
              </h2>
              <p className="text-xl text-gray-700 leading-relaxed mb-6">
-               Terrascape est né d'un constat simple : la gestion quotidienne d'un établissement (installation, nettoyage, manutention) pèse lourdement sur vos équipes. 
-               Entre le service client et la qualité de la cuisine, la logistique passe souvent au second plan.
+               {aboutDict.mission.paragraph1}
              </p>
              <p className="text-xl text-gray-700 leading-relaxed mb-6">
-               Nous ne sommes pas uniquement des intervenants d'extérieur. 
-               Nous sommes le partenaire qui garantit que votre établissement est impeccable à l'ouverture : sols dégraissés, vitres propres, terrasse installée au millimètre et mobilier prêt à accueillir.
+               {aboutDict.mission.paragraph2}
              </p>
              <p className="text-xl text-terra-brown font-medium italic leading-relaxed border-l-4 border-terra-gold pl-6 py-2 mx-auto inline-block text-left">
-               "Votre métier est de servir. Le nôtre est de préparer votre outil de travail."
+               {aboutDict.mission.quote}
              </p>
            </motion.div>
         </div>
@@ -107,8 +124,8 @@ export default function AboutContent() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {values.map((value, index) => {
-              const Icon = value.icon;
+            {aboutDict.values.map((value: any, index: number) => {
+              const Icon = iconMap[value.title];
               return (
                 <motion.div
                   key={index}
@@ -154,15 +171,14 @@ export default function AboutContent() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-5xl font-bold mb-8 font-montserrat">
-                ZONE D'INTERVENTION
+                {aboutDict.intervention.title}
               </h2>
               <p className="text-white/80 text-lg mb-8 leading-relaxed">
-                Nos équipes techniques interviennent 7j/7, de jour comme de nuit, pour assurer la rotation de vos services. 
-                Une réactivité totale, de Monaco à Cannes, pour les restaurants, hôtels et plages privées.
+                {aboutDict.intervention.description}
               </p>
               
               <div className="grid grid-cols-2 gap-4">
-                {cities.map((city, index) => (
+                {aboutDict.intervention.cities.map((city: string, index: number) => (
                   <div key={index} className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-terra-gold" />
                     <span className="font-medium text-lg">{city}</span>
@@ -209,19 +225,19 @@ export default function AboutContent() {
       <section className="bg-terra-sand/30 py-20 text-center">
          <div className="container mx-auto px-6">
            <h2 className="text-3xl font-bold text-terra-brown mb-8 font-montserrat">
-             Prêt à travailler avec nous ?
+             {aboutDict.cta.title}
            </h2>
            <a
-              href="/contact"
+              href={`/${lang}/contact`}
               className="inline-flex items-center gap-2 bg-terra-brown text-white px-8 py-4 rounded-full font-bold hover:bg-terra-gold transition-colors duration-300 shadow-lg hover:shadow-xl"
             >
-              Contactez-nous
+              {aboutDict.cta.button}
               <ArrowRight className="w-5 h-5" />
             </a>
          </div>
       </section>
 
-      <Footer />
+      <Footer dict={footerDict} lang={lang} />
     </main>
   );
 }

@@ -1,0 +1,423 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À Propos",
+    "contact": "Contact",
+    "references": "Références"
+  },
+  "footer": {
+    "brandName": "TERRASCAPE",
+    "brandDescription": "Installation et entretien de mobilier de terrasse premium sur la Côte d'Azur",
+    "contactTitle": "Contact",
+    "phone": "+33 7 66 02 50 27",
+    "location": "Nice - Côte d'Azur",
+    "email": "terrascape06@gmail.com",
+    "quickLinksTitle": "Liens Rapides",
+    "quickLinks": {
+      "services": "Nos Services",
+      "about": "À Propos",
+      "contact": "Nous Contacter"
+    },
+    "copyright": "Tous droits réservés."
+  },
+  "hero": {
+    "title": "L'EXPERT LOGISTIQUE & NETTOYAGE DE TERRASSES",
+    "subtitle": "Spécialiste pour l'hivernage, le stockage de mobilier et la remise en état . Intervention de Monaco à Cannes.",
+    "tagline": "\"Concentrez-vous sur vos clients, TERRASCAPE s'occupe du reste.\"",
+    "badges": {
+      "available": "Intervention 7j/7",
+      "schedule": "Matin, Journée & Nuit",
+      "discrete": "Service Discret" 
+    },
+    "cta": "Devis Professionnel Gratuit",
+    "locations": "Nice • Cannes • Monaco • Antibes • Saint-Jean-Cap-Ferrat",
+    "imageAlt": "page de la cote d'azur ensoleillée"
+  },
+  "services": {
+    "title": "NOS EXPERTISES",
+    "items": [
+      {
+        "title": "Nettoyage Haute Pression ",
+        "description": "Décapage de sols, nettoyage de stores bannes et remise en état de cuisines. Solutions respectant les normes d'hygiène pour restaurants."
+      },
+      {
+        "title": "Hivernage & Gestion de Stock Mobilier",
+        "description": "Ne perdez plus de place. Nous assurons la collecte, le stockage sécurisé et l'inventaire de vos parasols, transats et tables hors saison."
+      },
+      {
+        "title": "Mise en place & Logistique Événementielle",
+        "description": "Installation de terrasses éphémères et manutention de mobilier pour vos soirées et événements sur la Côte d'Azur."
+      }
+    ],
+    "learnMore": "En savoir plus"
+  },
+  "about": {
+    "eyebrow": "NOTRE ADN",
+    "title": "Plus qu'un service, un partenaire de l'ombre.",
+    "description1": "Terrascape est né d'une exigence : offrir aux établissements de la Côte d'Azur une logistique irréprochable.",
+    "description2": "Nous sommes les mains invisibles qui rendent vos terrasses parfaites, chaque jour.",
+    "checkmarks": [
+      "Intervention 7j/7",
+      "Discrétion Assurée",
+      "Équipes Formées"
+    ],
+    "cta": "Découvrir notre histoire",
+    "imageAlt": "image terasse de restaurant "
+  },
+  "contact": {
+    "title": "Prêt à sublimer votre établissement ?",
+    "subtitle": "Devis gratuit et réponse sous 24h.",
+    "labels": {
+      "phone": "Téléphone",
+      "email": "Email",
+      "zone": "Zone d'intervention",
+      "name": "Nom & Prénom",
+      "establishment": "Nom de l'établissement",
+      "message": "Message"
+    },
+    "phoneNumber": "+33 7 66 02 50 27",
+    "emailAddress": "terrascape06@gmail.com",
+    "locations": "Nice • Cannes • Monaco • Antibes",
+    "cta": "Envoyer ma demande",
+    "sending": "Envoi...",
+    "successMessage": "Message envoyé avec succès ! Nous vous répondrons sous 24h.",
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "servicesHub": {
+    "hero": {
+      "title": "NOS EXPERTISES",
+      "subtitle": "Une solution dédiée pour chaque besoin de votre établissement."
+    },
+    "items": [
+      {
+        "id": "gestion",
+        "title": "Gestion & Logistique",
+        "subtitle": "Installation, Rangement & Hivernage.",
+        "description": "Une gestion millimétrée de votre mobilier pour des ouvertures et fermetures fluides.",
+        "link": "/services/gestion"
+      },
+      {
+        "id": "nettoyage",
+        "title": "Nettoyage & Hygiène",
+        "subtitle": "Remise en état sols, vitres et surfaces.",
+        "description": "Un standard de propreté 5 étoiles pour garantir l'expérience client dès le premier regard.",
+        "link": "/services/nettoyage"
+      },
+      {
+        "id": "events",
+        "title": "Événementiel & Plages",
+        "subtitle": "Aménagement éphémère & Logistique événementielle.",
+        "description": "Transformation de vos espaces pour des événements privés ou la saison estivale.",
+        "link": "/services/events"
+      }
+    ],
+    "ctaLink": "Découvrir cette offre",
+    "callToAction": {
+      "title": "Besoin d'une solution sur-mesure ?",
+      "description": "Nous adaptons nos interventions à la réalité de votre établissement. Discutons de vos contraintes.",
+      "button": "Contacter un expert"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "L'EXCELLENCE OPÉRATIONNELLE POUR VOTRE ÉTABLISSEMENT.",
+      "subtitle": "Logistique de Terrasse • Hygiène & Propreté • Événementiel"
+    },
+    "mission": {
+      "eyebrow": "NOTRE MISSION",
+      "title": "Préparer la scène pour votre succès.",
+      "paragraph1": "Terrascape est né d'un constat simple : la gestion quotidienne d'un établissement (installation, nettoyage, manutention) pèse lourdement sur vos équipes. Entre le service client et la qualité de la cuisine, la logistique passe souvent au second plan.",
+      "paragraph2": "Nous ne sommes pas uniquement des intervenants d'extérieur. Nous sommes le partenaire qui garantit que votre établissement est impeccable à l'ouverture : sols dégraissés, vitres propres, terrasse installée au millimètre et mobilier prêt à accueillir.",
+      "quote": "\"Votre métier est de servir. Le nôtre est de préparer votre outil de travail.\""
+    },
+    "values": [
+      {
+        "title": "Fiabilité",
+        "description": "Nous sommes là, qu'il pleuve, qu'il vente, ou qu'il soit 5h du matin."
+      },
+      {
+        "title": "Discrétion",
+        "description": "Intervention silencieuse, tenue impeccable. Vos clients ne nous voient pas, ils voient le résultat."
+      },
+      {
+        "title": "Exigence",
+        "description": "Le souci du détail est notre standard. Rien n'est laissé au hasard."
+      }
+    ],
+    "intervention": {
+      "title": "ZONE D'INTERVENTION",
+      "description": "Nos équipes techniques interviennent 7j/7, de jour comme de nuit, pour assurer la rotation de vos services. Une réactivité totale, de Monaco à Cannes, pour les restaurants, hôtels et plages privées.",
+      "cities": ["Nice", "Cannes", "Antibes", "Juan-les-Pins", "Monaco"]
+    },
+    "cta": {
+      "title": "Prêt à travailler avec nous ?",
+      "button": "Contactez-nous"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "PARLONS DE VOTRE PROJET.",
+      "subtitle": "Une question ? Un devis ? Notre équipe est à votre écoute."
+    },
+    "contact": {
+      "title": "Nos Coordonnées",
+      "phoneLabel": "Téléphone",
+      "emailLabel": "Email",
+      "zoneTitle": "Zone d'Intervention Exclusive",
+      "zoneDescription": "Nous nous déplaçons directement sur site.",
+      "cities": ["Monaco", "Nice", "Cannes", "Antibes / Juan-les-Pins", "Saint-Jean-Cap-Ferrat", "Eze"]
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "nameLabel": "Nom & Prénom",
+      "namePlaceholder": "Votre nom complet",
+      "emailLabel": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "establishmentLabel": "Nom de l'établissement",
+      "establishmentPlaceholder": "Restaurant, Plage, Club...",
+      "phoneLabel": "Téléphone",
+      "phonePlaceholder": "06...",
+      "typeLabel": "Type de prestation",
+      "typeOptions": {
+        "installation": "Installation & Rangement",
+        "nettoyage": "Nettoyage Haute-Pression",
+        "evenementiel": "Événementiel & Décoration",
+        "autre": "Autre demande"
+      },
+      "messageLabel": "Message",
+      "messagePlaceholder": "Détaillez votre besoin...",
+      "submitButton": "Envoyer ma demande",
+      "submitting": "Envoi en cours...",
+      "successMessage": "Message envoyé avec succès ! Nous vous recontacterons sous 24h.",
+      "errorMessage": "Une erreur est survenue. Veuillez réessayer ou nous appeler directement."
+    },
+    "faq": {
+      "eyebrow": "INFORMATIONS",
+      "title": "Questions Fréquentes",
+      "items": [
+        {
+          "question": "Intervenez-vous le dimanche ?",
+          "answer": "Oui, nous assurons un service 7j/7, y compris les jours fériés pour les établissements saisonniers. Nous savons que votre activité ne s'arrête pas."
+        },
+        {
+          "question": "Quelle est votre zone d'intervention ?",
+          "answer": "Notre zone principale s'étend de Monaco à Cannes, incluant Antibes, Juan-les-Pins, Nice, Villefranche-sur-Mer et Saint-Jean-Cap-Ferrat."
+        },
+        {
+          "question": "Faites-vous uniquement le nettoyage ?",
+          "answer": "Non, nous proposons une gestion complète : mise en place matinale (tables, chaises, parasols), rangement nocturne, nettoyage haute-pression, et même la décoration événementielle."
+        }
+      ]
+    }
+  },
+  "service_gestion": {
+    "hero": {
+      "title": "Gestion & Mise en place de terrasses",
+      "location": "Nice – Cannes – Monaco – Côte d'Azur"
+    },
+    "objective": "Garantir une terrasse parfaitement rangée, propre et prête à accueillir vos clients, sans mobiliser votre personnel.",
+    "workflow": {
+      "title": "Mode de Fonctionnement",
+      "steps": [
+        {
+          "phase": "Avant Ouverture",
+          "tasks": [
+            "Mise en place complète du mobilier",
+            "Alignement des tables et chaises",
+            "Installation parasols, barrières, chauffages",
+            "Vérification stabilité et propreté"
+          ],
+          "result": "Terrasse prête dès l'ouverture"
+        },
+        {
+          "phase": "Pendant le Service",
+          "tasks": [
+            "Ajustement rapide du mobilier",
+            "Remise en ordre discrète",
+            "Intervention sans gêner les clients"
+          ]
+        },
+        {
+          "phase": "Après Service",
+          "tasks": [
+            "Rangement sécurisé du mobilier",
+            "Nettoyage de surface",
+            "Sécurisation de la terrasse",
+            "Fermeture complète selon consignes"
+          ]
+        }
+      ]
+    },
+    "equipment": {
+      "title": "Matériel Utilisé",
+      "items": [
+        "Chariots professionnels",
+        
+        "Désinfectants homologués",
+        "Microfibres professionnelles",
+        "Matériel antidérapant",
+        "Équipement de Protection Individuelle"
+      ]
+    },
+    "approach": {
+      "title": "Notre Approche",
+      "items": [
+        "Personnel formé et expérimenté",
+        "Tenue discrète et professionnelle",
+        "Intervention silencieuse",
+        "Respect de l'image de l'établissement",
+        "Autonomie totale"
+      ]
+    },
+    "results": {
+      "title": "RÉSULTAT GARANTI",
+      "benefits": [
+        "Terrasse propre",
+        "Mobilier parfaitement aligné",
+        "Gain de temps pour votre équipe",
+        "Image premium pour vos clients"
+      ],
+      "cta": "Demander un devis"
+    }
+  },
+  "service_nettoyage": {
+    "hero": {
+      "title": "Nettoyage Haute Pression & Remise en état",
+      "location": "Nice – Cannes – Monaco – Côte d'Azur"
+    },
+    "objective": "Garantir un standard d'hygiène irréprochable pour vos terrasses et espaces extérieurs, sans mobiliser votre personnel.",
+    "services": {
+      "title": "Nos Prestations",
+      "items": [
+        {
+          "name": "Sols & Terrasses",
+          "tasks": [
+            "Décapage haute pression (pierre, béton, bois)",
+            "Élimination des taches tenaces",
+            "Traitement anti-mousse et anti-glisse",
+            "Nettoyage des joints et caniveau"
+          ]
+        },
+        {
+          "name": "Mobilier & Équipements",
+          "tasks": [
+            "Nettoyage mobilier (plastique, métal, bois)",
+            "Stores bannes et parasols",
+            "Vitres et baies vitrées",
+            "Enseignes et façades"
+          ]
+        },
+        {
+          "name": "Zones Critiques",
+          "tasks": [
+            "Cuisine extérieure",
+            "Zones de stockage",
+            "Espaces fumeurs",
+            "Zones de livraison"
+          ]
+        }
+      ]
+    },
+    "equipment": {
+      "title": "Équipement Professionnel",
+      "items": [
+        "Nettoyeur haute pression thermique",
+        "Systèmes d'aspiration eau et poussière",
+        "Produits certifiés normes alimentaires",
+        "Microfibres et brosses adaptées"
+      ]
+    },
+    "guarantee": {
+      "title": "Notre Engagement Qualité",
+      "items": [
+        "Intervention discrète (tôt le matin ou hors service)",
+        "Produits écologiques et biodégradables",
+        "Résultat immédiat et durable",
+        "Service sur-mesure selon vos besoins"
+      ]
+    },
+    "results": {
+      "title": "RÉSULTAT IMMÉDIAT",
+      "benefits": [
+        "Propreté éclatante",
+        "Respect des normes d'hygiène",
+        "Image premium",
+        "Intervention sans gêne"
+      ],
+      "cta": "Demander un devis gratuit"
+    }
+  },
+  "service_events": {
+    "hero": {
+      "title": "Événementiel & Aménagement de Plages",
+      "location": "Nice – Cannes – Monaco – Côte d'Azur"
+    },
+    "objective": "Transformez vos espaces pour des événements privés ou la saison estivale, clés en main.",
+    "services": {
+      "title": "Nos Prestations Événementielles",
+      "items": [
+        {
+          "name": "Événements Privés",
+          "tasks": [
+            "Installation de terrasses éphémères",
+            "Aménagement espace cocktail / réception",
+            "Décoration florale et mobilier design",
+            "Éclairage d'ambiance",
+            "Logistique complète (montage/démontage)"
+          ]
+        },
+        {
+          "name": "Plages Privées (Saison)",
+          "tasks": [
+            "Installation transats, parasols, matelas",
+            "Aménagement bar et espace restauration",
+            "Zones VIP et cabines privées",
+            "Mise en place et entretien quotidien",
+            "Démontage et stockage fin de saison"
+          ]
+        },
+        {
+          "name": "Corporate & Séminaires",
+          "tasks": [
+           "Aménagement espace réunion extérieur",
+            "Installation technique (sonorisation, écrans)",
+            "Mobilier professionnel et confortable",
+            "Service traiteur et restauration",
+            "Coordination logistique complète"
+          ]
+        }
+      ]
+    },
+    "approach": {
+      "title": "Notre Méthode",
+      "steps": [
+        "Étude personnalisée de votre projet",
+        "Proposition d'aménagement sur-mesure",
+        "Installation rapide et discrète",
+        "Suivi pendant l'événement",
+        "Remise en état après événement"
+      ]
+    },
+    "equipment": {
+      "title": "Mobilier & Décoration",
+      "items": [
+        "Mobilier haut de gamme (location ou achat)",
+        "Parasols et voiles d'ombrage design",
+        "Éclairage LED et guirlandes",
+        "Plantes et décoration végétale",
+        "Signalétique personnalisée"
+      ]
+    },
+    "results": {
+      "title": "L'EXPÉRIENCE CLÉ EN MAIN",
+      "benefits": [
+        "Zéro stress logistique",
+        "Résultat professionnel garanti",
+        "Flexibilité totale",
+        "Respect des délais"
+      ],
+      "cta": "Parlez-nous de votre projet"
+    }
+  }
+}

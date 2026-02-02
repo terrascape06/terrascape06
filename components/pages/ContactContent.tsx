@@ -7,7 +7,14 @@ import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-export default function ContactContent() {
+interface ContactContentProps {
+  navigationDict: any;
+  footerDict: any;
+  contactDict: any;
+  lang: string;
+}
+
+export default function ContactContent({ navigationDict, footerDict, contactDict, lang }: ContactContentProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -64,24 +71,9 @@ export default function ContactContent() {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
-  const faqs = [
-    {
-      question: "Intervenez-vous le dimanche ?",
-      answer: "Oui, nous assurons un service 7j/7, y compris les jours fériés pour les établissements saisonniers. Nous savons que votre activité ne s'arrête pas."
-    },
-    {
-      question: "Quelle est votre zone d'intervention ?",
-      answer: "Notre zone principale s'étend de Monaco à Cannes, incluant Antibes, Juan-les-Pins, Nice, Villefranche-sur-Mer et Saint-Jean-Cap-Ferrat."
-    },
-    {
-      question: "Faites-vous uniquement le nettoyage ?",
-      answer: "Non, nous proposons une gestion complète : mise en place matinale (tables, chaises, parasols), rangement nocturne, nettoyage haute-pression, et même la décoration événementielle."
-    }
-  ];
-
   return (
     <main className="min-h-screen bg-terra-white">
-      <Header />
+      <Header dict={navigationDict} lang={lang} />
       
       {/* 1. Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
@@ -106,15 +98,15 @@ export default function ContactContent() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl md:text-5xl font-bold font-montserrat uppercase tracking-wider text-white mb-4"
           >
-            PARLONS DE VOTRE PROJET.
+            {contactDict.hero.title}
           </motion.h1>
           <motion.div 
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ duration: 0.8, delay: 0.3 }}
-             className="text-white/90 text-lg md:text-xl font-medium tracking-wide"
+             className="text-white/80 text-lg md:text-xl font-light tracking-wide"
           >
-            Une question ? Un devis ? Notre équipe est à votre écoute.
+            {contactDict.hero.subtitle}
           </motion.div>
         </div>
       </section>
@@ -132,7 +124,7 @@ export default function ContactContent() {
               transition={{ duration: 0.8 }}
             >
                <h2 className="text-3xl font-bold text-terra-brown mb-8 font-montserrat">
-                Nos Coordonnées
+                {contactDict.contact.title}
               </h2>
               <div className="space-y-8 mb-12">
                 <a href="tel:+33766025027" className="flex items-center group">
@@ -140,7 +132,7 @@ export default function ContactContent() {
                     <Phone className="w-6 h-6 text-terra-gold group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="text-terra-brown/60 text-sm uppercase tracking-widest mb-1">Téléphone</p>
+                    <p className="text-terra-brown/60 text-sm uppercase tracking-widest mb-1">{contactDict.contact.phoneLabel}</p>
                     <p className="text-2xl font-bold text-terra-brown group-hover:text-terra-gold transition-colors">
                       +33 7 66 02 50 27
                     </p>
@@ -152,7 +144,7 @@ export default function ContactContent() {
                     <Mail className="w-6 h-6 text-terra-gold group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <p className="text-terra-brown/60 text-sm uppercase tracking-widest mb-1">Email</p>
+                    <p className="text-terra-brown/60 text-sm uppercase tracking-widest mb-1">{contactDict.contact.emailLabel}</p>
                     <p className="text-xl text-terra-brown group-hover:text-terra-gold transition-colors">
                       terrascape06@gmail.com
                     </p>
@@ -163,21 +155,14 @@ export default function ContactContent() {
                {/* New Zone d'Intervention Block */}
                <div className="bg-terra-sand/10 rounded-2xl p-8 border border-terra-gold/20">
                   <h3 className="text-xl font-bold text-terra-brown mb-2 font-montserrat">
-                    Zone d'Intervention Exclusive
+                    {contactDict.contact.zoneTitle}
                   </h3>
                   <p className="text-gray-500 mb-6 font-medium">
-                    Nous nous déplaçons directement sur site.
+                    {contactDict.contact.zoneDescription}
                   </p>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
-                    {[
-                      "Monaco", 
-                      "Nice", 
-                      "Cannes", 
-                      "Antibes / Juan-les-Pins", 
-                      "Saint-Jean-Cap-Ferrat", 
-                      "Eze"
-                    ].map((city, index) => (
+                    {contactDict.contact.cities.map((city: string, index: number) => (
                       <div key={index} className="flex items-center space-x-2">
                         <MapPin className="w-4 h-4 text-terra-gold flex-shrink-0" />
                         <span className="text-terra-brown font-medium text-sm">{city}</span>
@@ -197,12 +182,12 @@ export default function ContactContent() {
             >
               <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100">
                 <h3 className="text-2xl font-bold text-terra-brown mb-6 font-montserrat">
-                  Envoyez-nous un message
+                  {contactDict.form.title}
                 </h3>
                  <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-terra-brown font-semibold mb-2 ml-1 text-sm uppercase tracking-wide">
-                      Nom & Prénom
+                      {contactDict.form.nameLabel}
                     </label>
                     <input
                       type="text"
@@ -211,14 +196,14 @@ export default function ContactContent() {
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-terra-gold focus:ring-1 focus:ring-terra-gold focus:outline-none transition-all duration-300"
-                      placeholder="Votre nom complet"
+                      placeholder={contactDict.form.namePlaceholder}
                       required
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-terra-brown font-semibold mb-2 ml-1 text-sm uppercase tracking-wide">
-                      Email
+                      {contactDict.form.emailLabel}
                     </label>
                     <input
                       type="email"
@@ -227,14 +212,14 @@ export default function ContactContent() {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-terra-gold focus:ring-1 focus:ring-terra-gold focus:outline-none transition-all duration-300"
-                      placeholder="votre@email.com"
+                      placeholder={contactDict.form.emailPlaceholder}
                       required
                     />
                   </div>
 
                   <div>
                     <label htmlFor="establishment" className="block text-terra-brown font-semibold mb-2 ml-1 text-sm uppercase tracking-wide">
-                      Nom de l'établissement
+                      {contactDict.form.establishmentLabel}
                     </label>
                     <input
                       type="text"
@@ -243,7 +228,7 @@ export default function ContactContent() {
                       value={formData.establishment}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-terra-gold focus:ring-1 focus:ring-terra-gold focus:outline-none transition-all duration-300"
-                      placeholder="Restaurant, Plage, Club..."
+                      placeholder={contactDict.form.establishmentPlaceholder}
                       required
                     />
                   </div>
@@ -251,7 +236,7 @@ export default function ContactContent() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="phone" className="block text-terra-brown font-semibold mb-2 ml-1 text-sm uppercase tracking-wide">
-                          Téléphone
+                          {contactDict.form.phoneLabel}
                         </label>
                         <input
                           type="tel"
@@ -260,14 +245,14 @@ export default function ContactContent() {
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-terra-gold focus:ring-1 focus:ring-terra-gold focus:outline-none transition-all duration-300"
-                          placeholder="06..."
+                          placeholder={contactDict.form.phonePlaceholder}
                           required
                         />
                       </div>
                       
                       <div>
                          <label htmlFor="serviceType" className="block text-terra-brown font-semibold mb-2 ml-1 text-sm uppercase tracking-wide">
-                          Type de prestation
+                          {contactDict.form.typeLabel}
                         </label>
                         <div className="relative">
                           <select
@@ -277,10 +262,10 @@ export default function ContactContent() {
                             onChange={handleChange}
                              className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-terra-gold focus:ring-1 focus:ring-terra-gold focus:outline-none transition-all duration-300 appearance-none text-gray-700"
                           >
-                            <option value="installation">Installation & Rangement</option>
-                            <option value="nettoyage">Nettoyage Haute-Pression</option>
-                            <option value="evenementiel">Événementiel & Décoration</option>
-                            <option value="autre">Autre demande</option>
+                            <option value="installation">{contactDict.form.typeOptions.installation}</option>
+                            <option value="nettoyage">{contactDict.form.typeOptions.nettoyage}</option>
+                            <option value="evenementiel">{contactDict.form.typeOptions.evenementiel}</option>
+                            <option value="autre">{contactDict.form.typeOptions.autre}</option>
                           </select>
                            <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                         </div>
@@ -289,7 +274,7 @@ export default function ContactContent() {
 
                   <div>
                     <label htmlFor="message" className="block text-terra-brown font-semibold mb-2 ml-1 text-sm uppercase tracking-wide">
-                      Message
+                      {contactDict.form.messageLabel}
                     </label>
                     <textarea
                       id="message"
@@ -298,7 +283,7 @@ export default function ContactContent() {
                       onChange={handleChange}
                       rows={4}
                       className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-terra-gold focus:ring-1 focus:ring-terra-gold focus:outline-none resize-none transition-all duration-300"
-                      placeholder="Détaillez votre besoin..."
+                      placeholder={contactDict.form.messagePlaceholder}
                       required
                     />
                   </div>
@@ -308,19 +293,19 @@ export default function ContactContent() {
                     disabled={status === "loading"}
                     className="w-full bg-terra-brown text-white py-4 rounded-xl hover:bg-terra-gold shadow-lg hover:shadow-xl transition-all duration-300 font-bold text-lg uppercase tracking-wide flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === "loading" ? "Envoi en cours..." : "Envoyer ma demande"}
+                    {status === "loading" ? contactDict.form.submitting : contactDict.form.submitButton}
                     <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
 
                   {status === "success" && (
                     <div className="p-4 bg-green-50 text-green-800 rounded-lg text-center font-medium border border-green-200">
-                      Message envoyé avec succès ! Nous vous recontacterons sous 24h.
+                      {contactDict.form.successMessage}
                     </div>
                   )}
 
                   {status === "error" && (
                     <div className="p-4 bg-red-50 text-red-800 rounded-lg text-center font-medium border border-red-200">
-                      Une erreur est survenue. Veuillez réessayer ou nous appeler directement.
+                      {contactDict.form.errorMessage}
                     </div>
                   )}
                 </form>
@@ -336,15 +321,15 @@ export default function ContactContent() {
         <div className="container mx-auto px-6 max-w-4xl">
            <div className="text-center mb-16">
              <span className="text-terra-gold font-bold tracking-widest uppercase text-sm mb-4 block">
-                INFORMATIONS
+                {contactDict.faq.eyebrow}
              </span>
              <h2 className="text-3xl md:text-4xl font-bold text-terra-brown font-montserrat">
-               Questions Fréquentes
+               {contactDict.faq.title}
              </h2>
            </div>
 
            <div className="space-y-4">
-             {faqs.map((faq, index) => (
+             {contactDict.faq.items.map((faq: any, index: number) => (
                <div 
                  key={index} 
                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer"
@@ -376,7 +361,7 @@ export default function ContactContent() {
         </div>
       </section>
 
-      <Footer />
+      <Footer dict={footerDict} lang={lang} />
     </main>
   );
 }

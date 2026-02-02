@@ -1,16 +1,31 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function HeroSection() {
+interface HeroDict {
+  title: string;
+  subtitle: string;
+  tagline: string;
+  badges: {
+    available: string;
+    schedule: string;
+    discrete: string;
+  };
+  cta: string;
+  locations: string;
+  imageAlt: string;
+}
+
+export default function HeroSection({ dict, lang }: { dict: HeroDict; lang: string }) {
   return (
     <section id="accueil" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero/image-parasol-plage.jpg"
-          alt="page de la cote d'azur ensoleillée"
+          alt={dict.imageAlt}
           layout="fill"
           objectFit="cover"
           priority
@@ -30,7 +45,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight font-montserrat uppercase"
           >
-            L'EXPERT LOGISTIQUE & NETTOYAGE DE TERRASSES
+            {dict.title}
           </motion.h1>
 
           {/* Sub-text: Context & Hook */}
@@ -41,7 +56,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="text-xl md:text-2xl text-terra-sand font-medium"
             >
-              Spécialiste pour l'hivernage, le stockage de mobilier et la remise en état . Intervention de Monaco à Cannes.
+              {dict.subtitle}
             </motion.h2>
             <motion.p 
               initial={{ y: 20, opacity: 0 }}
@@ -49,7 +64,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               className="text-lg md:text-xl text-terra-gold italic font-medium"
             >
-              "Concentrez-vous sur vos clients, TERRASCAPE s'occupe du reste."
+              {dict.tagline}
             </motion.p>
           </div>
 
@@ -61,13 +76,13 @@ export default function HeroSection() {
             className="flex flex-wrap gap-3 mb-8"
           >
             <span className="flex items-center gap-2 text-white/90 font-medium text-sm md:text-base bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
-              <span className="text-terra-gold">•</span> Intervention 7j/7
+              <span className="text-terra-gold">•</span> {dict.badges.available}
             </span>
             <span className="flex items-center gap-2 text-white/90 font-medium text-sm md:text-base bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
-              <span className="text-terra-gold">•</span> Matin, Journée & Nuit
+              <span className="text-terra-gold">•</span> {dict.badges.schedule}
             </span>
             <span className="flex items-center gap-2 text-white/90 font-medium text-sm md:text-base bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">
-              <span className="text-terra-gold">•</span> Service Discret
+              <span className="text-terra-gold">•</span> {dict.badges.discrete}
             </span>
           </motion.div>
 
@@ -78,12 +93,12 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             className="mb-8"
           >
-            <a
-              href="/contact"
+            <Link
+              href={`/${lang}/contact`}
               className="inline-block bg-terra-gold text-white px-10 py-4 rounded-full hover:bg-terra-brown transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105"
             >
-              Devis Professionnel Gratuit
-            </a>
+              {dict.cta}
+            </Link>
           </motion.div>
 
           {/* Trust Badge / Location Info */}
@@ -113,7 +128,7 @@ export default function HeroSection() {
               />
             </svg>
             <p className="text-sm md:text-base font-medium">
-              Nice • Cannes • Monaco • Antibes • Saint-Jean-Cap-Ferrat
+              {dict.locations}
             </p>
           </motion.div>
         </div>

@@ -1,0 +1,421 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "references": "References"
+  },
+  "footer": {
+    "brandName": "TERRASCAPE",
+    "brandDescription": "Installation and maintenance of premium terrace furniture on the French Riviera",
+    "contactTitle": "Contact",
+    "phone": "+33 7 66 02 50 27",
+    "location": "Nice - French Riviera",
+    "email": "terrascape06@gmail.com",
+    "quickLinksTitle": "Quick Links",
+    "quickLinks": {
+      "services": "Our Services",
+      "about": "About Us",
+      "contact": "Contact Us"
+    },
+    "copyright": "All rights reserved."
+  },
+  "hero": {
+    "title": "THE EXPERT IN LOGISTICS & TERRACE CLEANING",
+    "subtitle": "Specialist in winterization, furniture storage and restoration. Services from Monaco to Cannes.",
+    "tagline": "\"Focus on your customers, TERRASCAPE takes care of the rest.\"",
+    "badges": {
+      "available": "Available 7 days/week",
+      "schedule": "Morning, Day & Night",
+      "discrete": "Discreet Service"
+    },
+    "cta": "Free Professional Quote",
+    "locations": "Nice • Cannes • Monaco • Antibes • Saint-Jean-Cap-Ferrat",
+    "imageAlt": "sunny French Riviera beach"
+  },
+  "services": {
+    "title": "OUR EXPERTISE",
+    "items": [
+      {
+        "title": "High-Pressure Cleaning",
+        "description": "Floor stripping, awning cleaning and kitchen restoration. Solutions meeting hygiene standards for restaurants."
+      },
+      {
+        "title": "Winterization & Furniture Storage Management",
+        "description": "Don't waste space anymore. We handle pickup, secure storage and inventory of your parasols, deck chairs and tables during off-season."
+      },
+      {
+        "title": "Event Setup & Logistics",
+        "description": "Installation of temporary terraces and furniture handling for your parties and events on the French Riviera."
+      }
+    ],
+    "learnMore": "Learn more"
+  },
+  "about": {
+    "eyebrow": "OUR DNA",
+    "title": "More than a service, a partner in the shadows.",
+    "description1": "Terrascape was born from a requirement: to offer establishments on the French Riviera impeccable logistics.",
+    "description2": "We are the invisible hands that make your terraces perfect, every day.",
+    "checkmarks": [
+      "Available 7 days/week",
+      "Discretion Guaranteed",
+      "Trained Teams"
+    ],
+    "cta": "Discover our story",
+    "imageAlt": "restaurant terrace image"
+  },
+  "contact": {
+    "title": "Ready to elevate your establishment?",
+    "subtitle": "Free quote and response within 24 hours.",
+    "labels": {
+      "phone": "Phone",
+      "email": "Email",
+      "zone": "Service Area",
+      "name": "Name & Surname",
+      "establishment": "Establishment Name",
+      "message": "Message"
+    },
+    "phoneNumber": "+33 7 66 02 50 27",
+    "emailAddress": "terrascape06@gmail.com",
+    "locations": "Nice • Cannes • Monaco • Antibes",
+    "cta": "Send my request",
+    "sending": "Sending...",
+    "successMessage": "Message sent successfully! We will reply within 24 hours.",
+    "errorMessage": "An error occurred. Please try again."
+  },
+  "servicesHub": {
+    "hero": {
+      "title": "OUR EXPERTISE",
+      "subtitle": "A tailored solution for every need of your establishment."
+    },
+    "items": [
+      {
+        "id": "gestion",
+        "title": "Management & Logistics",
+        "subtitle": "Installation, Storage & Winterization.",
+        "description": "Precise management of your furniture for smooth openings and closings.",
+        "link": "/services/gestion"
+      },
+      {
+        "id": "nettoyage",
+        "title": "Cleaning & Hygiene",
+        "subtitle": "Floor, window and surface restoration.",
+        "description": "A 5-star cleanliness standard to ensure customer experience from the first glance.",
+        "link": "/services/nettoyage"
+      },
+      {
+        "id": "events",
+        "title": "Events & Beaches",
+        "subtitle": "Temporary setup & Event logistics.",
+        "description": "Transformation of your spaces for private events or the summer season.",
+        "link": "/services/events"
+      }
+    ],
+    "ctaLink": "Discover this offer",
+    "callToAction": {
+      "title": "Need a custom solution?",
+      "description": "We adapt our services to your establishment's reality. Let's discuss your constraints.",
+      "button": "Contact an expert"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "title": "OPERATIONAL EXCELLENCE FOR YOUR ESTABLISHMENT.",
+      "subtitle": "Terrace Logistics • Hygiene & Cleanliness • Events"
+    },
+    "mission": {
+      "eyebrow": "OUR MISSION",
+      "title": "Setting the stage for your success.",
+      "paragraph1": "Terrascape was born from a simple observation: daily establishment management (installation, cleaning, handling) weighs heavily on your teams. Between customer service and food quality, logistics often takes a back seat.",
+      "paragraph2": "We are not just external contractors. We are the partner who ensures your establishment is impeccable at opening: degreased floors, clean windows, terrace set up to the millimeter and furniture ready to welcome guests.",
+      "quote": "\"Your job is to serve. Ours is to prepare your work tool.\""
+    },
+    "values": [
+      {
+        "title": "Reliability",
+        "description": "We are there, rain or shine, even at 5am."
+      },
+      {
+        "title": "Discretion",
+        "description": "Silent intervention, impeccable appearance. Your customers don't see us, they see the result."
+      },
+      {
+        "title": "Excellence",
+        "description": "Attention to detail is our standard. Nothing is left to chance."
+      }
+    ],
+    "intervention": {
+      "title": "SERVICE AREA",
+      "description": "Our technical teams intervene 7 days a week, day and night, to ensure your service rotation. Total responsiveness, from Monaco to Cannes, for restaurants, hotels and private beaches.",
+      "cities": ["Nice", "Cannes", "Antibes", "Juan-les-Pins", "Monaco"]
+    },
+    "cta": {
+      "title": "Ready to work with us?",
+      "button": "Contact us"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "LET'S TALK ABOUT YOUR PROJECT.",
+      "subtitle": "A question? A quote? Our team is here to listen."
+    },
+    "contact": {
+      "title": "Our Contact Information",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "zoneTitle": "Exclusive Service Area",
+      "zoneDescription": "We come directly to your site.",
+      "cities": ["Monaco", "Nice", "Cannes", "Antibes / Juan-les-Pins", "Saint-Jean-Cap-Ferrat", "Eze"]
+    },
+    "form": {
+      "title": "Send us a message",
+      "nameLabel": "Name & Surname",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "establishmentLabel": "Establishment Name",
+      "establishmentPlaceholder": "Restaurant, Beach, Club...",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "06...",
+      "typeLabel": "Service Type",
+      "typeOptions": {
+        "installation": "Installation & Storage",
+        "nettoyage": "High-Pressure Cleaning",
+        "evenementiel": "Events & Decoration",
+        "autre": "Other request"
+      },
+      "messageLabel": "Message",
+      "messagePlaceholder": "Describe your needs...",
+      "submitButton": "Send my request",
+      "submitting": "Sending...",
+      "successMessage": "Message sent successfully! We will contact you within 24 hours.",
+      "errorMessage": "An error occurred. Please try again or call us directly."
+    },
+    "faq": {
+      "eyebrow": "INFORMATION",
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Do you work on Sundays?",
+          "answer": "Yes, we provide 7-day service, including holidays for seasonal establishments. We know your business doesn't stop."
+        },
+        {
+          "question": "What is your service area?",
+          "answer": "Our main area extends from Monaco to Cannes, including Antibes, Juan-les-Pins, Nice, Villefranche-sur-Mer and Saint-Jean-Cap-Ferrat."
+        },
+        {
+          "question": "Do you only do cleaning?",
+          "answer": "No, we offer complete management: morning setup (tables, chairs, parasols), evening storage, high-pressure cleaning, and even event decoration."
+        }
+      ]
+    }
+  },
+  "service_gestion": {
+    "hero": {
+      "title": "Terrace Management & Setup",
+      "location": "Nice – Cannes – Monaco – French Riviera"
+    },
+    "objective": "Ensure a perfectly arranged, clean terrace ready to welcome your customers, without mobilizing your staff.",
+    "workflow": {
+      "title": "How It Works",
+      "steps": [
+        {
+          "phase": "Before Opening",
+          "tasks": [
+            "Complete furniture setup",
+            "Table and chair alignment",
+            "Parasol, barrier and heater installation",
+            "Stability and cleanliness check"
+          ],
+          "result": "Terrace ready from opening"
+        },
+        {
+          "phase": "During Service",
+          "tasks": [
+            "Quick furniture adjustment",
+            "Discreet tidying",
+            "Intervention without disturbing customers"
+          ]
+        },
+        {
+          "phase": "After Service",
+          "tasks": [
+            "Secure furniture storage",
+            "Surface cleaning",
+            "Terrace securing",
+            "Complete closing according to instructions"
+          ]
+        }
+      ]
+    },
+    "equipment": {
+      "title": "Equipment Used",
+      "items": [
+        "Professional carts",
+        "Professional microfibers",
+        "Non-slip equipment",
+        "Personal Protective Equipment"
+      ]
+    },
+    "approach": {
+      "title": "Our Approach",
+      "items": [
+        "Trained and experienced staff",
+        "Discreet and professional attire",
+        "Silent intervention",
+        "Respect for establishment image",
+        "Total autonomy"
+      ]
+    },
+    "results": {
+      "title": "GUARANTEED RESULT",
+      "benefits": [
+        "Clean terrace",
+        "Perfectly aligned furniture",
+        "Time saving for your team",
+        "Premium image for your customers"
+      ],
+      "cta": "Request a quote"
+    }
+  },
+  "service_nettoyage": {
+    "hero": {
+      "title": "High-Pressure Cleaning & Restoration",
+      "location": "Nice – Cannes – Monaco – French Riviera"
+    },
+    "objective": "Ensure an impeccable hygiene standard for your terraces and outdoor spaces, without mobilizing your staff.",
+    "services": {
+      "title": "Our Services",
+      "items": [
+        {
+          "name": "Floors & Terraces",
+          "tasks": [
+            "High-pressure stripping (stone, concrete, wood)",
+            "Stubborn stain removal",
+            "Anti-moss and anti-slip treatment",
+            "Joint and gutter cleaning"
+          ]
+        },
+        {
+          "name": "Furniture & Equipment",
+          "tasks": [
+            "Furniture cleaning (plastic, metal, wood)",
+            "Awnings and parasols",
+            "Windows and bay windows",
+            "Signs and facades"
+          ]
+        },
+        {
+          "name": "Critical Areas",
+          "tasks": [
+            "Outdoor kitchen",
+            "Storage areas",
+            "Smoking areas",
+            "Delivery zones"
+          ]
+        }
+      ]
+    },
+    "equipment": {
+      "title": "Professional Equipment",
+      "items": [
+        "Thermal high-pressure washer",
+        "Water and dust vacuum systems",
+        "Food-grade certified products",
+        "Adapted microfibers and brushes"
+      ]
+    },
+    "guarantee": {
+      "title": "Our Quality Commitment",
+      "items": [
+        "Discreet intervention (early morning or off-service)",
+        "Ecological and biodegradable products",
+        "Immediate and lasting result",
+        "Tailor-made service according to your needs"
+      ]
+    },
+    "results": {
+      "title": "IMMEDIATE RESULT",
+      "benefits": [
+        "Sparkling cleanliness",
+        "Compliance with hygiene standards",
+        "Premium image",
+        "Intervention without disturbance"
+      ],
+      "cta": "Request a free quote"
+    }
+  },
+  "service_events": {
+    "hero": {
+      "title": "Events & Beach Setup",
+      "location": "Nice – Cannes – Monaco – French Riviera"
+    },
+    "objective": "Transform your spaces for private events or the summer season, turnkey.",
+    "services": {
+      "title": "Our Event Services",
+      "items": [
+        {
+          "name": "Private Events",
+          "tasks": [
+            "Temporary terrace installation",
+            "Cocktail / reception area setup",
+            "Floral decoration and designer furniture",
+            "Ambient lighting",
+            "Complete logistics (assembly/disassembly)"
+          ]
+        },
+        {
+          "name": "Private Beaches  (Season)",
+          "tasks": [
+            "Deck chairs, parasols, mattresses installation",
+            "Bar and dining area setup",
+            "VIP areas and private cabins",
+            "Daily setup and maintenance",
+            "End-of-season dismantling and storage"
+          ]
+        },
+        {
+          "name": "Corporate & Seminars",
+          "tasks": [
+            "Outdoor meeting area setup",
+            "Technical installation (sound system, screens)",
+            "Professional and comfortable furniture",
+            "Catering service",
+            "Complete logistics coordination"
+          ]
+        }
+      ]
+    },
+    "approach": {
+      "title": "Our Method",
+      "steps": [
+        "Personalized study of your project",
+        "Tailor-made layout proposal",
+        "Fast and discreet installation",
+        "Monitoring during the event",
+        "Restoration after event"
+      ]
+    },
+    "equipment": {
+      "title": "Furniture & Decoration",
+      "items": [
+        "High-end furniture (rental or purchase)",
+        "Designer parasols and shade sails",
+        "LED lighting and garlands",
+        "Plants and plant decoration",
+        "Personalized signage"
+      ]
+    },
+    "results": {
+      "title": "THE TURNKEY EXPERIENCE",
+      "benefits": [
+        "Zero logistics stress",
+        "Guaranteed professional result",
+        "Total flexibility",
+        "Deadline respect"
+      ],
+      "cta": "Tell us about your project"
+    }
+  }
+}

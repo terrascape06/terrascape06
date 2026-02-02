@@ -4,7 +4,27 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 
-export default function ContactSection() {
+interface ContactDict {
+  title: string;
+  subtitle: string;
+  labels: {
+    phone: string;
+    email: string;
+    zone: string;
+    name: string;
+    establishment: string;
+    message: string;
+  };
+  phoneNumber: string;
+  emailAddress: string;
+  locations: string;
+  cta: string;
+  sending: string;
+  successMessage: string;
+  errorMessage: string;
+}
+
+export default function ContactSection({ dict }: { dict: ContactDict }) {
   const [formData, setFormData] = useState({
     name: "",
     establishment: "",
@@ -60,10 +80,10 @@ export default function ContactSection() {
           >
             <div>
               <h2 className="text-4xl md:text-5xl font-bold font-montserrat mb-6 leading-tight">
-                Prêt à sublimer votre établissement ?
+                {dict.title}
               </h2>
               <p className="text-xl text-white/80 font-medium">
-                Devis gratuit et réponse sous 24h.
+                {dict.subtitle}
               </p>
             </div>
 
@@ -73,9 +93,9 @@ export default function ContactSection() {
                   <Phone className="w-6 h-6 text-terra-gold group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-white/60 text-sm uppercase tracking-widest mb-1">Téléphone</p>
+                  <p className="text-white/60 text-sm uppercase tracking-widest mb-1">{dict.labels.phone}</p>
                   <p className="text-3xl font-bold text-terra-gold group-hover:text-white transition-colors">
-                    +33 7 66 02 50 27
+                    {dict.phoneNumber}
                   </p>
                 </div>
               </a>
@@ -85,9 +105,9 @@ export default function ContactSection() {
                   <Mail className="w-6 h-6 text-terra-gold group-hover:text-white transition-colors" />
                 </div>
                 <div>
-                  <p className="text-white/60 text-sm uppercase tracking-widest mb-1">Email</p>
+                  <p className="text-white/60 text-sm uppercase tracking-widest mb-1">{dict.labels.email}</p>
                   <p className="text-xl text-white group-hover:text-terra-gold transition-colors">
-                    terrascape06@gmail.com
+                    {dict.emailAddress}
                   </p>
                 </div>
               </a>
@@ -97,9 +117,9 @@ export default function ContactSection() {
                   <MapPin className="w-6 h-6 text-terra-gold" />
                 </div>
                 <div>
-                  <p className="text-white/60 text-sm uppercase tracking-widest mb-1">Zone d'intervention</p>
+                  <p className="text-white/60 text-sm uppercase tracking-widest mb-1">{dict.labels.zone}</p>
                   <p className="text-xl text-white">
-                    Nice • Cannes • Monaco • Antibes
+                    {dict.locations}
                   </p>
                 </div>
               </div>
@@ -123,14 +143,14 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors"
-                    placeholder="Nom & Prénom"
+                    placeholder={dict.labels.name}
                     required
                   />
                   <label 
                     htmlFor="name" 
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.name ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
                   >
-                    Nom & Prénom
+                    {dict.labels.name}
                   </label>
                 </div>
 
@@ -142,14 +162,14 @@ export default function ContactSection() {
                     value={formData.establishment}
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors"
-                    placeholder="Nom de l'établissement"
+                    placeholder={dict.labels.establishment}
                     required
                   />
                   <label 
                     htmlFor="establishment" 
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.establishment ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
                   >
-                    Nom de l'établissement
+                    {dict.labels.establishment}
                   </label>
                 </div>
               </div>
@@ -163,14 +183,14 @@ export default function ContactSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors"
-                    placeholder="Téléphone"
+                    placeholder={dict.labels.phone}
                     required
                   />
                   <label 
                     htmlFor="phone" 
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.phone ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
                   >
-                    Téléphone
+                    {dict.labels.phone}
                   </label>
                 </div>
 
@@ -182,14 +202,14 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors"
-                    placeholder="Email"
+                    placeholder={dict.labels.email}
                     required
                   />
                   <label 
                     htmlFor="email" 
                     className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.email ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
                   >
-                    Email
+                    {dict.labels.email}
                   </label>
                 </div>
               </div>
@@ -204,14 +224,14 @@ export default function ContactSection() {
                   onChange={handleChange}
                   rows={4}
                   className="w-full bg-transparent border-b border-terra-gold/50 py-3 text-white placeholder-transparent focus:outline-none focus:border-terra-gold transition-colors resize-none"
-                  placeholder="Message"
+                  placeholder={dict.labels.message}
                   required
                 />
                 <label 
                   htmlFor="message" 
                   className={`absolute left-0 transition-all duration-300 pointer-events-none ${formData.message ? '-top-6 text-sm text-terra-gold' : 'top-3 text-white/50'}`}
                 >
-                  Message
+                  {dict.labels.message}
                 </label>
               </div>
 
@@ -223,11 +243,11 @@ export default function ContactSection() {
                 {status === "loading" ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    Envoi...
+                    {dict.sending}
                   </>
                 ) : (
                   <>
-                    Envoyer ma demande
+                    {dict.cta}
                     <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
@@ -239,7 +259,7 @@ export default function ContactSection() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-center text-white"
                 >
-                  <p>Message envoyé avec succès ! Nous vous répondrons sous 24h.</p>
+                  <p>{dict.successMessage}</p>
                 </motion.div>
               )}
               
@@ -249,7 +269,7 @@ export default function ContactSection() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-center text-white"
                 >
-                  <p>Une erreur est survenue. Veuillez réessayer.</p>
+                  <p>{dict.errorMessage}</p>
                 </motion.div>
               )}
             </form>

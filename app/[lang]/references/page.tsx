@@ -1,9 +1,8 @@
-"use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getDictionary } from "@/get-dictionary";
 
 const references = [
   // ROW 1
@@ -100,10 +99,17 @@ const references = [
 // This works perfectly. So Card 4 should be 1 col, 1 row.
 // Updating code below to reflect this logic for a perfect "Bento".
 
-export default function ReferencesPage() {
+export default async function ReferencesPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as 'fr' | 'en');
+  
   return (
     <main className="min-h-screen bg-terra-white">
-      <Header />
+      <Header dict={dict.navigation} lang={lang} />
 
       {/* 1. Hero Section */}
       <section className="pt-40 pb-16 text-center px-6">
@@ -169,7 +175,7 @@ export default function ReferencesPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer dict={dict.footer} lang={lang} />
     </main>
   );
 }

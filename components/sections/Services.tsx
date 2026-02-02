@@ -4,26 +4,17 @@ import { motion } from "framer-motion";
 import { Armchair, Sparkles, PartyPopper, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const services = [
-  {
-    title: "Nettoyage Haute Pression & Normes HACCP",
-    description: "Décapage de sols, nettoyage de stores bannes et remise en état de cuisines. Solutions respectant les normes d'hygiène pour restaurants.",
-    icon: Sparkles,
-    link: "/services/nettoyage",
-  },
-  {
-    title: "Hivernage & Gestion de Stock Mobilier",
-    description: "Ne perdez plus de place. Nous assurons la collecte, le stockage sécurisé et l'inventaire de vos parasols, transats et tables hors saison.",
-    icon: Armchair,
-    link: "/services/gestion",
-  },
-  {
-    title: "Mise en place & Logistique Événementielle",
-    description: "Installation de terrasses éphémères et manutention de mobilier pour vos soirées et événements sur la Côte d'Azur.",
-    icon: PartyPopper,
-    link: "/services/events",
-  },
-];
+interface ServicesDict {
+  title: string;
+  items: Array<{
+    title: string;
+    description: string;
+  }>;
+  learnMore: string;
+}
+
+const serviceIcons = [Sparkles, Armchair, PartyPopper];
+const serviceLinks = ["/services/nettoyage", "/services/gestion", "/services/events"];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -46,7 +37,7 @@ const cardVariants = {
   },
 };
 
-export default function ServicesSection() {
+export default function ServicesSection({ dict, lang }: { dict: ServicesDict; lang: string }) {
   return (
     <section id="services" className="py-24 bg-terra-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -58,7 +49,7 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-terra-brown mb-4 tracking-widest font-montserrat uppercase">
-            NOS EXPERTISES
+            {dict.title}
           </h2>
           <div className="w-24 h-1 bg-terra-gold mx-auto rounded-full"></div>
         </motion.div>
@@ -70,8 +61,9 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mx-4 md:mx-0"
         >
-          {services.map((service, index) => {
-            const Icon = service.icon;
+          {dict.items.map((service, index) => {
+            const Icon = serviceIcons[index];
+            const link = serviceLinks[index];
             return (
               <motion.div
                 key={index}
@@ -92,10 +84,10 @@ export default function ServicesSection() {
                 </p>
 
                 <Link
-                  href={service.link}
+                  href={`/${lang}${link}`}
                   className="inline-flex items-center text-terra-gold font-semibold uppercase tracking-wide text-sm border-b border-terra-gold pb-1 hover:text-terra-brown hover:border-terra-brown transition-all duration-300 group-hover:translate-x-1"
                 >
-                  En savoir plus
+                  {dict.learnMore}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </motion.div>

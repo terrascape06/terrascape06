@@ -1,16 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Clock, Shield, Warehouse, Armchair, Sun, ClipboardCheck } from "lucide-react";
+import { ArrowRight, CheckCircle, Clock, ShieldCheck, Warehouse, Armchair, Sun, ClipboardCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-export default function GestionContent() {
+interface GestionContentProps {
+  navigationDict: any;
+  footerDict: any;
+  serviceDict: any;
+  lang: string;
+}
+
+export default function GestionContent({ navigationDict, footerDict, serviceDict, lang }: GestionContentProps) {
   return (
     <main className="min-h-screen bg-terra-white">
-      <Header />
+      <Header dict={navigationDict} lang={lang} />
       
       {/* 1. Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
@@ -32,7 +39,7 @@ export default function GestionContent() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-7xl font-bold font-montserrat uppercase tracking-wider text-white mb-6 leading-tight"
           >
-            Gestion & Mise en place de terrasses
+            {serviceDict.hero.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -40,7 +47,7 @@ export default function GestionContent() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-terra-gold text-xl md:text-2xl font-light tracking-widest uppercase mb-8"
           >
-            Nice – Cannes – Monaco – Côte d’Azur
+            {serviceDict.hero.location}
           </motion.p>
         </div>
       </section>
@@ -56,7 +63,7 @@ export default function GestionContent() {
            >
               <div className="w-20 h-1 bg-terra-gold mx-auto mb-10 rounded-full"></div>
               <h2 className="text-2xl md:text-4xl font-medium text-terra-brown leading-relaxed font-montserrat">
-                "Garantir une terrasse parfaitement rangée, propre et prête à accueillir vos clients, <br className="hidden md:block"/> <span className="text-terra-gold font-bold">sans mobiliser votre personnel.</span>"
+                "{serviceDict.objective}"
               </h2>
            </motion.div>
         </div>
@@ -67,84 +74,49 @@ export default function GestionContent() {
         <div className="container mx-auto max-w-6xl">
            <div className="text-center mb-16">
              <h3 className="text-3xl md:text-5xl font-bold text-terra-brown font-montserrat uppercase tracking-wider">
-               Mode de Fonctionnement
+               {serviceDict.workflow.title}
              </h3>
            </div>
            
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Step 1 */}
-              <motion.div 
-                 initial={{ opacity: 0, y: 30 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.1 }}
-                 className="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-terra-gold relative group hover:-translate-y-2 transition-transform duration-300"
-              >
-                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-terra-brown text-white px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase shadow-md">
-                   Avant Ouverture
-                 </div>
-                 <div className="mt-6 mb-6 flex justify-center">
-                    <div className="p-4 bg-terra-gold/10 rounded-full">
-                       <Sun className="w-8 h-8 text-terra-gold" />
+              {serviceDict.workflow.steps.map((step: any, index: number) => {
+                const icons = [Sun, Clock, Warehouse];
+                const colors = ['gold', 'brown', 'gold'];
+                const IconComponent = icons[index];
+                const color = colors[index];
+                
+                return (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`bg-white p-8 rounded-2xl shadow-xl border-t-4 ${color === 'brown' ? 'border-terra-brown' : 'border-terra-gold'} relative group hover:-translate-y-2 transition-transform duration-300`}
+                  >
+                    <div className={`absolute -top-6 left-1/2 -translate-x-1/2 ${index === 1 ? 'bg-terra-white text-terra-brown border border-terra-brown' : 'bg-terra-brown text-white'} px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase shadow-md`}>
+                      {step.phase}
                     </div>
-                 </div>
-                 <ul className="space-y-3 text-gray-600 mb-6 min-h-[140px]">
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Mise en place complète du mobilier</li>
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Alignement des tables et chaises</li>
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Installation parasols, barrières, chauffages</li>
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Vérification stabilité et propreté</li>
-                 </ul>
-                 <div className="bg-terra-sand/20 p-3 rounded-lg text-center text-terra-brown font-bold text-sm">
-                   Terrasse prête dès l'ouverture
-                 </div>
-              </motion.div>
-
-              {/* Step 2 */}
-              <motion.div 
-                 initial={{ opacity: 0, y: 30 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.2 }}
-                 className="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-terra-brown relative group hover:-translate-y-2 transition-transform duration-300"
-              >
-                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-terra-white text-terra-brown border border-terra-brown px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase shadow-md">
-                   Pendant le Service
-                 </div>
-                 <div className="mt-6 mb-6 flex justify-center">
-                    <div className="p-4 bg-terra-brown/10 rounded-full">
-                       <Clock className="w-8 h-8 text-terra-brown" />
+                    <div className="mt-6 mb-6 flex justify-center">
+                      <div className={`p-4 ${color === 'brown' ? 'bg-terra-brown/10' : 'bg-terra-gold/10'} rounded-full`}>
+                        <IconComponent className={`w-8 h-8 ${color === 'brown' ? 'text-terra-brown' : 'text-terra-gold'}`} />
+                      </div>
                     </div>
-                 </div>
-                 <ul className="space-y-3 text-gray-600 mb-6 min-h-[140px]">
-                    <li className="flex gap-2"><span className="text-terra-brown">•</span> Ajustement rapide du mobilier</li>
-                    <li className="flex gap-2"><span className="text-terra-brown">•</span> Remise en ordre discrète</li>
-                    <li className="flex gap-2"><span className="text-terra-brown">•</span> Intervention sans gêner les clients</li>
-                 </ul>
-              </motion.div>
-
-              {/* Step 3 */}
-              <motion.div 
-                 initial={{ opacity: 0, y: 30 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.3 }}
-                 className="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-terra-gold relative group hover:-translate-y-2 transition-transform duration-300"
-              >
-                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-terra-brown text-white px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase shadow-md">
-                   Après Service
-                 </div>
-                 <div className="mt-6 mb-6 flex justify-center">
-                    <div className="p-4 bg-terra-gold/10 rounded-full">
-                       <Warehouse className="w-8 h-8 text-terra-gold" />
-                    </div>
-                 </div>
-                 <ul className="space-y-3 text-gray-600 mb-6 min-h-[140px]">
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Rangement sécurisé du mobilier</li>
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Nettoyage de surface</li>
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Sécurisation de la terrasse</li>
-                    <li className="flex gap-2"><span className="text-terra-gold">•</span> Fermeture complète selon consignes</li>
-                 </ul>
-              </motion.div>
+                    <ul className="space-y-3 text-gray-600 mb-6 min-h-[140px]">
+                      {step.tasks.map((task: string, taskIndex: number) => (
+                        <li key={taskIndex} className="flex gap-2">
+                          <span className={color === 'brown' ? 'text-terra-brown' : 'text-terra-gold'}>•</span> {task}
+                        </li>
+                      ))}
+                    </ul>
+                    {step.result && (
+                      <div className="bg-terra-sand/20 p-3 rounded-lg text-center text-terra-brown font-bold text-sm">
+                        {step.result}
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
            </div>
         </div>
       </section>
@@ -162,17 +134,10 @@ export default function GestionContent() {
                >
                   <h3 className="text-2xl font-bold text-terra-brown mb-8 flex items-center gap-3 font-montserrat">
                     <Armchair className="text-terra-gold h-8 w-8" />
-                    Matériel Utilisé
+                    {serviceDict.equipment.title}
                   </h3>
                   <ul className="space-y-4">
-                     {[
-                       "Chariots professionnels",
-                       "Produits nettoyants normes CHR",
-                       "Désinfectants homologués",
-                       "Microfibres professionnelles",
-                       "Matériel antidérapant",
-                       "Équipement de Protection Individuelle"
-                     ].map((item, i) => (
+                     {serviceDict.equipment.items.map((item: string, i: number) => (
                        <li key={i} className="flex items-center gap-4 text-gray-700 font-medium">
                          <div className="h-2 w-2 bg-terra-gold rounded-full"></div>
                          {item}
@@ -190,16 +155,10 @@ export default function GestionContent() {
                >
                   <h3 className="text-2xl font-bold text-terra-brown mb-8 flex items-center gap-3 font-montserrat">
                     <ClipboardCheck className="text-terra-gold h-8 w-8" />
-                    Notre Approche
+                    {serviceDict.approach.title}
                   </h3>
                   <ul className="space-y-4">
-                     {[
-                       "Personnel formé et expérimenté",
-                       "Tenue discrète et professionnelle",
-                       "Intervention silencieuse",
-                       "Respect de l’image de l’établissement",
-                       "Autonomie totale"
-                     ].map((item, i) => (
+                     {serviceDict.approach.items.map((item: string, i: number) => (
                        <li key={i} className="flex items-center gap-4 text-gray-700 font-medium">
                          <div className="h-2 w-2 bg-terra-brown rounded-full"></div>
                          {item}
@@ -214,14 +173,9 @@ export default function GestionContent() {
       {/* 5. Promise / Result */}
       <section className="py-24 px-6 bg-terra-brown relative overflow-hidden text-center text-white">
         <div className="container mx-auto max-w-4xl relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold font-montserrat mb-12">RÉSULTAT GARANTI</h2>
+          <h2 className="text-3xl md:text-5xl font-bold font-montserrat mb-12">{serviceDict.results.title}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {[
-              "Terrasse propre",
-              "Mobilier parfaitement aligné",
-              "Gain de temps pour votre équipe",
-              "Image premium pour vos clients"
-            ].map((benefit, i) => (
+            {serviceDict.results.benefits.map((benefit: string, i: number) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -237,16 +191,16 @@ export default function GestionContent() {
           </div>
 
           <Link
-            href="/contact?subject=gestion"
+            href={`/${lang}/contact?subject=gestion`}
             className="inline-flex items-center gap-3 bg-terra-gold text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-terra-brown transition-all duration-300 shadow-xl"
           >
-            Demander un devis
+            {serviceDict.results.cta}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>
 
-      <Footer />
+      <Footer dict={footerDict} lang={lang} />
     </main>
   );
 }

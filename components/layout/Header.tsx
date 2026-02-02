@@ -2,8 +2,22 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
-export default function Header() {
+interface NavigationDict {
+  home: string;
+  services: string;
+  about: string;
+  contact: string;
+  references?: string;
+}
+
+interface HeaderProps {
+  dict: NavigationDict;
+  lang: string;
+}
+
+export default function Header({ dict, lang }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -11,7 +25,7 @@ export default function Header() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="group">
+          <Link href={`/${lang}`} className="group">
             {/* Ajout de 'items-center' pour l'alignement vertical global */}
             <div className="flex items-center font-montserrat font-bold tracking-widest cursor-pointer relative transform scale-90 md:scale-100 origin-left">
 
@@ -41,44 +55,48 @@ export default function Header() {
           <ul className="hidden md:flex items-center space-x-8">
             <li>
               <Link 
-                href="/" 
+                href={`/${lang}`}
                 className="text-terra-brown hover:text-terra-gold transition-colors duration-300 font-medium"
               >
-                Accueil
+                {dict.home}
               </Link>
             </li>
             <li>
               <Link 
-                href="/services" 
+                href={`/${lang}/services`}
                 className="text-terra-brown hover:text-terra-gold transition-colors duration-300 font-medium"
               >
-                Services
+                {dict.services}
               </Link>
             </li>
             {/* <li>
               <Link 
-                href="/references" 
+                href={`/${lang}/references`}
                 className="text-terra-brown hover:text-terra-gold transition-colors duration-300 font-medium"
               >
-                Références
+                {dict.references}
               </Link>
             </li> */}
             <li>
               <Link 
-                href="/about" 
+                href={`/${lang}/about`}
                 className="text-terra-brown hover:text-terra-gold transition-colors duration-300 font-medium"
               >
-                À Propos
+                {dict.about}
               </Link>
             </li>
             
             <li>
               <Link 
-                href="/contact" 
+                href={`/${lang}/contact`}
                 className="bg-terra-gold text-white px-6 py-2 rounded-md hover:bg-terra-brown transition-colors duration-300 font-medium"
               >
-                Contact
+                {dict.contact}
               </Link>
+            </li>
+            
+            <li>
+              <LanguageSwitcher />
             </li>
           </ul>
 
@@ -102,40 +120,38 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-terra-sand/20 shadow-xl py-6 px-6 flex flex-col space-y-4 h-screen md:h-auto animate-fadeIn">
              <Link 
-                href="/" 
+                href={`/${lang}`}
                 className="text-terra-brown hover:text-terra-gold font-medium text-lg py-3 border-b border-gray-50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Accueil
+                {dict.home}
               </Link>
               <Link 
-                href="/services" 
+                href={`/${lang}/services`}
                 className="text-terra-brown hover:text-terra-gold font-medium text-lg py-3 border-b border-gray-50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Services
+                {dict.services}
               </Link>
+              
               <Link 
-                href="/references" 
+                href={`/${lang}/about`}
                 className="text-terra-brown hover:text-terra-gold font-medium text-lg py-3 border-b border-gray-50"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Références
+                {dict.about}
               </Link>
               <Link 
-                href="/about" 
-                className="text-terra-brown hover:text-terra-gold font-medium text-lg py-3 border-b border-gray-50"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                À Propos
-              </Link>
-              <Link 
-                href="/contact" 
+                href={`/${lang}/contact`}
                 className="text-terra-gold font-bold text-lg py-3"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Contact
+                {dict.contact}
               </Link>
+              
+              <div className="pt-4 border-t border-gray-100">
+                <LanguageSwitcher />
+              </div>
           </div>
         )}
       </nav>

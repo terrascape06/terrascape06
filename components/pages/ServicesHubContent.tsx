@@ -1,46 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Armchair, Sparkles, PartyPopper } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const services = [
-  {
-    id: "gestion",
-    title: "Gestion & Logistique",
-    subtitle: "Installation, Rangement & Hivernage.",
-    description: "Une gestion millimétrée de votre mobilier pour des ouvertures et fermetures fluides.",
-    link: "/services/gestion",
-    image: "/images/services/gestion/image-terasse-plage.jpeg",
-    
-  },
-  {
-    id: "nettoyage",
-    title: "Nettoyage & Hygiène",
-    subtitle: "Remise en état sols, vitres et surfaces.",
-    description: "Un standard de propreté 5 étoiles pour garantir l'expérience client dès le premier regard.",
-    link: "/services/nettoyage",
-    image: "/images/services/nettoyage/nettoyage.jpg",
-    
-  },
-  {
-    id: "events",
-    title: "Événementiel & Plages",
-    subtitle: "Aménagement éphémère & Logistique événementielle.",
-    description: "Transformation de vos espaces pour des événements privés ou la saison estivale.",
-    link: "/services/events",
-    image: "/images/services/evenements/fete.jpg",
-    
-  }
-];
+interface ServicesHubContentProps {
+  navigationDict: any;
+  footerDict: any;
+  servicesDict: any;
+  lang: string;
+}
 
-export default function ServicesPage() {
+export default function ServicesHubContent({ navigationDict, footerDict, servicesDict, lang }: ServicesHubContentProps) {
   return (
     <main className="min-h-screen bg-terra-white">
-      <Header />
+      <Header dict={navigationDict} lang={lang} />
       
       {/* 1. Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
@@ -65,7 +42,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-3xl md:text-6xl font-bold font-montserrat uppercase tracking-wider text-white mb-6"
           >
-            NOS EXPERTISES
+            {servicesDict.hero.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -73,7 +50,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white/90 text-xl md:text-2xl font-light tracking-wide max-w-3xl mx-auto mb-8"
           >
-            Une solution dédiée pour chaque besoin de votre établissement.
+            {servicesDict.hero.subtitle}
           </motion.p>
           <motion.div 
             initial={{ width: 0 }}
@@ -88,7 +65,12 @@ export default function ServicesPage() {
       <section className="py-16 md:py-24 px-6 relative">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
+            {servicesDict.items.map((service: any, index: number) => {
+              const imageMap: Record<string, string> = {
+                gestion: "/images/services/gestion/image-terasse-plage.jpeg",
+                nettoyage: "/images/services/nettoyage/nettoyage.jpg",
+                events: "/images/services/evenements/fete.jpg"
+              };
               
               return (
                 <motion.div
@@ -99,11 +81,11 @@ export default function ServicesPage() {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   className="group relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden cursor-pointer shadow-2xl"
                 >
-                  <Link href={service.link} className="block h-full w-full">
+                  <Link href={`/${lang}${service.link}`} className="block h-full w-full">
                     {/* Background Image with Zoom Effect */}
                     <div className="absolute inset-0 z-0">
                       <Image
-                        src={service.image}
+                        src={imageMap[service.id]}
                         alt={service.title}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -113,7 +95,6 @@ export default function ServicesPage() {
 
                     {/* Content */}
                     <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12 text-white">
-                      
                       
 
                       <h2 className="text-3xl font-bold font-montserrat mb-3 group-hover:text-terra-gold transition-colors duration-300">
@@ -129,7 +110,7 @@ export default function ServicesPage() {
                       </p>
 
                       <div className="flex items-center gap-2 text-terra-gold font-bold uppercase tracking-widest text-sm group-hover:gap-4 transition-all duration-300">
-                        Découvrir cette offre
+                        {servicesDict.ctaLink}
                         <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
@@ -145,22 +126,22 @@ export default function ServicesPage() {
       <section className="py-16 md:py-24 bg-terra-brown text-white text-center">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-6">
-            Besoin d'une solution sur-mesure ?
+            {servicesDict.callToAction.title}
           </h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
-            Nous adaptons nos interventions à la réalité de votre établissement. Discutons de vos contraintes.
+            {servicesDict.callToAction.description}
           </p>
           <Link
-            href="/contact"
+            href={`/${lang}/contact`}
             className="inline-flex items-center gap-3 bg-terra-gold text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-terra-brown transition-all duration-300 shadow-xl"
           >
-            Contacter un expert
+            {servicesDict.callToAction.button}
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>
 
-      <Footer />
+      <Footer dict={footerDict} lang={lang} />
     </main>
   );
 }

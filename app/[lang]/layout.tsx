@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema";
+import type { Locale } from "@/get-dictionary";
 
 // OPTIMISATION SEO : Mots-clés stratégiques intégrés naturellement
 export const metadata: Metadata = {
@@ -41,15 +42,25 @@ export const metadata: Metadata = {
   verification: {
     google: "votre-code-google-verification-ici",
   },
+  alternates: {
+    languages: {
+      'fr': '/fr',
+      'en': '/en',
+    },
+  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
+  
   return (
-    <html lang="fr">
+    <html lang={lang}>
       <head>
         {/* Ajout du Schema "WebSite" pour forcer l'affichage du nom "Terrascape" sur Google */}
         <script
